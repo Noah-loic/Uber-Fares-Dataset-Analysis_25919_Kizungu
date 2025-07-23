@@ -50,9 +50,12 @@ plt.ylabel('Frequency')
 plt.xlim(0,100)  # Limit x-axis for better visibility
 plt.show()
 ```
+<img width="890" height="470" alt="true history" src="https://github.com/user-attachments/assets/801b8c68-891b-48ab-8708-0252c409ad64" />
+
 **Purpose:** To view the distribution of fare amounts.  
 **Observation:** Most fares are clustered below $50, with a peak in the $5–$15 range.  
 **Conclusion:** The majority of Uber trips are relatively inexpensive, suggesting short-distance or urban travel.
+
 
 ###  Boxplot of Fare Amounts
 
@@ -63,6 +66,8 @@ sns.boxplot(x=df_clean['fare_amount'])
 plt.title('Fare Amount Boxplot')
 plt.show()
 ```
+<img width="644" height="393" alt="boxplot" src="https://github.com/user-attachments/assets/5b9941e1-6e81-4194-9326-019b00adbba5" />
+
 **Purpose:** To detect outliers and understand fare spread.  
 **Observation:** There are several extreme high-value fares that lie far outside the interquartile range.  
 **Conclusion:** The dataset contains outliers which may represent:
@@ -81,6 +86,7 @@ if 'distance' in df_clean.columns:
     plt.ylabel('Fare Amount ($)')
     plt.show()
 ```
+<img width="695" height="470" alt="scatterplot" src="https://github.com/user-attachments/assets/495421cd-aa65-4993-9089-9627572b54d4" />
 
 
 **Interpretation:**
@@ -100,6 +106,8 @@ sns.heatmap(numeric_cols.corr(), annot=True, cmap='coolwarm', fmt=".2f")
 plt.title('Correlation Heatmap')
 plt.show()
 ```
+<img width="893" height="790" alt="heatmap" src="https://github.com/user-attachments/assets/dce855c4-9ab6-4f4e-9f95-ade69140188e" />
+
 
 **Interpretation:**
 - The heatmap shows pairwise correlations between all numeric variables in the dataset.
