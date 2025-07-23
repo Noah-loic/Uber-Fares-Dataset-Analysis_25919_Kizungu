@@ -1,4 +1,12 @@
+
+
 ## Uber Trip Data Analysis Report
+
+## Tools Used
+
+- **Python (Pandas, Numpy, Seaborn, Matplotlib)**  
+- **Power BI Desktop**  
+- **Git & GitHub**
 
 ## 1. Objective
 The goal of this notebook is to analyze Uber ride data to:
