@@ -97,6 +97,37 @@ if 'distance' in df_clean.columns:
   - Low fares for long distances → might be anomalies or discounts.
 - **Conclusion:** There is a positive correlation between distance and fare amount, but it is not perfectly linear due to external factors like traffic, tolls, and pricing algorithms.
 
+### barplot: fare_amount VS Hour of the day
+**Code Used:**
+```python
+Explain the observation and purpose of the infor(code) and image i provided:
+# Group data by hour and calculate average fare
+hourly_fare = df_clean.groupby('hour')['fare_amount'].mean().reset_index()
+
+# Plot
+plt.figure(figsize=(10,5))
+sns.barplot(x='hour', y='fare_amount', data=hourly_fare, palette='viridis')
+plt.title('Average Fare Amount by Hour of Day')
+plt.xlabel('Hour of Day (0-23)')
+plt.ylabel('Average Fare Amount ($)')
+plt.xticks(range(0,24))
+plt.show()
+```
+<img width="880" height="483" alt="Screenshot 2025-07-23 23 40 45" src="https://github.com/user-attachments/assets/47663019-005f-4ebc-acc2-e823a449ce4d" />
+
+**Purpose:**
+The code and chart aim to analyze and visualize how fare prices vary throughout the day, likely to identify patterns or peak pricing periods. This could be useful for pricing strategies, demand forecasting, or understanding customer behavior based on time of day. The use of a bar plot with a 'viridis' palette enhances readability and highlights trends effectively.
+
+**Observations:**
+- The highest average fare occurs around 5 AM, reaching approximately $16.
+- Fares are relatively high from midnight (0) to 6 AM, ranging from $10 to $16, suggesting peak pricing during early morning hours.
+- The average fare drops to around $10-$12 from 6 AM to midday (12 PM), indicating a more stable rate during morning and late morning.
+- From noon (12 PM) to evening (around 18 PM), fares remain fairly consistent, hovering between $10 and $12.
+- A slight increase is observed in the late evening and night (18 PM to 23 PM), with the fare peaking again at around $12-$13 by 23 PM.
+
+
+
+
 ### Heatmap: Correlation Between Numeric Variables
 **Code Used:**
 ```python
