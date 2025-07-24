@@ -119,8 +119,58 @@ plt.show()
 - Data entry errors.
 - Unusual ride patterns (e.g., surge pricing or airport trips).
 
-### Scatter Plot: Fare vs Distance
-**Code Used:**
+## Scatter Plot: Fare vs Distance
+
+### Calculating distance using haversine formula
+
+#### Feature Engineering: Trip Distance Calculation (Haversine Formula)
+
+The original dataset includes pickup and dropoff coordinates but does **not** contain a direct `distance` column.  
+To accurately measure trip lengths, we calculated the straight-line (great-circle) distance between the pickup and dropoff points using the **Haversine formula**.
+
+---
+
+#### Why This Matters
+
+Understanding trip distance is crucial for analyzing:
+
+- How **distance affects fare amount**
+- Identifying **short vs long trips**
+- Spotting **potential data anomalies** (e.g., high fare for short distance)
+```python
+def haversine_distance(lat1, lon1, lat2, lon2):
+    """
+    Calculate the great-circle distance between two points 
+    on the Earth (specified in decimal degrees).
+    Returns distance in miles.
+    """
+    # Convert degrees to radians
+    lat1, lon1, lat2, lon2 = map(np.radians, [lat1, lon1, lat2, lon2])
+    
+    # Haversine formula
+    dlat = lat2 - lat1
+    dlon = lon2 - lon1
+    
+    a = np.sin(dlat/2.0)**2 + np.cos(lat1) * np.cos(lat2) * np.sin(dlon/2.0)**2
+    c = 2 * np.arcsin(np.sqrt(a))
+    
+    # Radius of Earth in miles
+    r = 3956  
+    return c * r)
+```
+### Creating and adding distance column to the dataset
+```python
+# Create a new 'distance' column
+df_clean['distance'] = haversine_distance(
+    df_clean['pickup_latitude'], df_clean['pickup_longitude'],
+    df_clean['dropoff_latitude'], df_clean['dropoff_longitude']
+)
+df_clean.to_csv('uber_cleaned_with_feature.csv', index=False)
+
+print("\nEnhanced dataset saved to 'uber_cleaned_with_feature.csv'")
+print("\nFinal columns in dataset:", df_clean.columns.tolist())
+```
+**Code Used to plot :**
 ```python
 if 'distance' in df_clean.columns:
     plt.figure(figsize=(8,5))
