@@ -97,6 +97,44 @@ if 'distance' in df_clean.columns:
   - Low fares for long distances → might be anomalies or discounts.
 - **Conclusion:** There is a positive correlation between distance and fare amount, but it is not perfectly linear due to external factors like traffic, tolls, and pricing algorithms.
 
+## 4 Feature Engineering: Time-Based Features
+
+To enhance the dataset for temporal analysis, we extracted new columns from the `pickup_datetime` field and created a peak-hour indicator. These engineered features help identify trends in rider behavior and support powerful time-based visualizations in Power BI.
+
+**Code Used**
+
+```python
+# Extract date/time features
+df_clean['hour'] = df_clean['pickup_datetime'].dt.hour
+df_clean['day'] = df_clean['pickup_datetime'].dt.day
+df_clean['month'] = df_clean['pickup_datetime'].dt.month
+df_clean['day_of_week'] = df_clean['pickup_datetime'].dt.dayofweek
+
+# Peak/off-peak indicator (Example: 7–9 AM & 5–7 PM)
+def peak_hour(hour):
+    return 1 if hour in [7, 8, 9, 17, 18, 19] else 0
+
+df_clean['peak_hour'] = df_clean['hour'].apply(peak_hour)
+```
+
+ **Purpose: Extract Hour, Day, Month, and Day of Week**
+
+These new columns allow us to analyze ride patterns across different timescales:
+- **hour:** For hourly trends (e.g., busiest hours)
+- **day:** For daily activity trends
+- **month:** For monthly or seasonal trends
+- **day_of_week:** To distinguish between weekdays and weekends
+
+### Create a `peak_hour` Flag
+Identifies whether a ride occurred during peak hours (7–9 AM or 5–7 PM).
+
+**Encoded as:**
+- `1` = Peak hour
+- `0` = Off-peak
+
+  <img width="344" height="171" alt="check for new features" src="https://github.com/user-attachments/assets/aad121bc-e806-4578-8368-39487e52d7bd" />
+
+
 ### barplot: fare_amount VS Hour of the day
 **Code Used:**
 ```python
@@ -144,7 +182,4 @@ plt.show()
 - The heatmap shows pairwise correlations between all numeric variables in the dataset.
 - **Key Insight:** A moderate to strong correlation between `distance` and `fare_amount` (e.g., ~0.6 to 0.8), confirming the trend seen in the scatter plot.
 - Other variables (like latitudes and longitudes) typically show weak or no correlation with fare since they are spatial rather than numerical magnitudes.
-- **Conclusion:** The heatmap confirms that fare is mainly influenced by distance, validating the scatter plot. Other features may be useful for location-based clustering or advanced modeling but do not directly correlate with fare.
-
-
-
+- **Conclusion:** The heatmap confirms that fare is mainly influenced by distance, validating the scatter plot. Other features may be useful for location-based clustering or advanced modeling but do not directly correlate with fare
