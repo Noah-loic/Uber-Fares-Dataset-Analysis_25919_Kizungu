@@ -279,3 +279,29 @@ plt.show()
 - **Conclusion:** The heatmap confirms that fare is mainly influenced by distance, validating the scatter plot. Other features may be useful for location-based clustering or advanced modeling but do not directly correlate with fare
 - 
 # For more in depth view and understanding you can refer to the attach jupyterNotebook file
+
+
+## Power BI Visualization Insights
+
+### Dashboard
+<img width="659" height="365" alt="dashboard" src="https://github.com/user-attachments/assets/c556120c-86c9-4d8b-8000-0d51481bb6eb" />
+
+
+### 1. Sum of Fare Amount by Hour
+<img width="340" height="205" alt="sum of fare by hour" src="https://github.com/user-attachments/assets/aa925e9a-ed3c-4b3a-8dab-6e13108b54db" />
+
+- Fare revenue peaks between **5 PM and 10 PM**, suggesting high demand in the evenings.
+- Early morning hours (3 AM – 7 AM) show lower fare totals, likely due to low ride activity.
+
+### 2. Passenger Count by Fare Amount
+<img width="355" height="239" alt="sum of passenger count by fare amount" src="https://github.com/user-attachments/assets/a60acb83-ad51-4bd2-a5b9-140735e74a97" />
+
+- Most rides have fares between **$0–$50**.
+- Very few rides exceed $100, and extreme fares (e.g., $400+) are outliers.
+- Some inconsistencies (like negative fares or zero-passenger rides) may point to data quality issues.
+
+### 3. Sum of Fare by Day of the Week
+<img width="535" height="299" alt="sum of fare by day of the week" src="https://github.com/user-attachments/assets/2032da9a-b17c-4200-98d2-769454e46902" />
+
+- **Wednesdays, Thursdays, and Fridays** are the most lucrative days for Uber fares.
+- **Sunday** has the lowest fare total — potentially due to reduced commuting.
