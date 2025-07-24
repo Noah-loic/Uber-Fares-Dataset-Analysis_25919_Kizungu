@@ -228,4 +228,4 @@ plt.show()
 - Other variables (like latitudes and longitudes) typically show weak or no correlation with fare since they are spatial rather than numerical magnitudes.
 - **Conclusion:** The heatmap confirms that fare is mainly influenced by distance, validating the scatter plot. Other features may be useful for location-based clustering or advanced modeling but do not directly correlate with fare
 - 
-# For more in depth view and understanding you can refer to the attach jupiterNotebook file
+# For more in depth view and understanding you can refer to the attach jupyterNotebook file
