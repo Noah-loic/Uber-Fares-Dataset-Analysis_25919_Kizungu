@@ -290,18 +290,57 @@ plt.show()
 ### 1. Sum of Fare Amount by Hour
 <img width="340" height="205" alt="sum of fare by hour" src="https://github.com/user-attachments/assets/aa925e9a-ed3c-4b3a-8dab-6e13108b54db" />
 
-- Fare revenue peaks between **5 PM and 10 PM**, suggesting high demand in the evenings.
-- Early morning hours (3 AM – 7 AM) show lower fare totals, likely due to low ride activity.
+**Observation:** Fare amounts peak between hours 6–10 and 16–20, with a noticeable dip around midnight to early morning (0–5).
+**Insight:** Peak hours likely correspond to morning (7–9 AM) and evening (5–7 PM) rush hours, indicating higher demand or longer trips during commute times.
+
 
 ### 2. Passenger Count by Fare Amount
 <img width="355" height="239" alt="sum of passenger count by fare amount" src="https://github.com/user-attachments/assets/a60acb83-ad51-4bd2-a5b9-140735e74a97" />
 
+**Observation:** 
 - Most rides have fares between **$0–$50**.
 - Very few rides exceed $100, and extreme fares (e.g., $400+) are outliers.
-- Some inconsistencies (like negative fares or zero-passenger rides) may point to data quality issues.
+
+**Insight:** Most rides with passengers are low-cost, with occasional high-fare rides possibly involving multiple passengers or long distances.
 
 ### 3. Sum of Fare by Day of the Week
 <img width="535" height="299" alt="sum of fare by day of the week" src="https://github.com/user-attachments/assets/2032da9a-b17c-4200-98d2-769454e46902" />
 
+**Observation:** 
 - **Wednesdays, Thursdays, and Fridays** are the most lucrative days for Uber fares.
 - **Sunday** has the lowest fare total — potentially due to reduced commuting.
+- The total fare amount is relatively consistent across all days of the week, with a slight peak around day 3 (Wednesday) and day 4 (Thursday).
+- **Insight:** Mid-week days might see higher ride activity or longer trips, though the variation is minimal, suggesting stable demand throughout the week.
+
+### 4. Sum of fare_amount by Year, Quarter, Month and Day
+<img width="398" height="227" alt="sum of fare by year" src="https://github.com/user-attachments/assets/65b07eb4-fdba-4a05-9e7a-07bceab3925c" />
+
+- **Observation:** The fare amount shows significant fluctuations over time, with peaks and troughs from 2010 to 2014, followed by a sharp decline.
+- **Insight:** There may have been a surge in Uber usage or longer trips around 2012–2013, with a possible drop-off or data collection change after 2014.
+
+### 5. Fare Distribution
+<img width="644" height="377" alt="fare distribution" src="https://github.com/user-attachments/assets/2c55bdcc-871c-4c69-9cff-303b648f3052" />
+
+- **Observation:** The majority of fares are concentrated below $100, with a steep drop-off beyond that, and a few outliers up to $500.
+- **Insight:** Most Uber trips are short and inexpensive, with rare high-value trips possibly due to long distances, surge pricing, or errors.
+
+### 6. Sum of fare_amount by month
+<img width="410" height="215" alt="sum of by month" src="https://github.com/user-attachments/assets/01cb2bf3-479b-4014-99af-aea52b6bcb20" />
+
+- **Observation:** Fare amounts vary slightly across months, with a peak around months 2–4 and a dip around month 7.
+- **Insight:** Seasonal trends might influence ride demand, with higher activity in early months (possibly winter or early spring) and lower in mid-year.
+
+### 7. Sum of fare_amount by day
+<img width="520" height="304" alt="sum of fare by the day" src="https://github.com/user-attachments/assets/f765c1cb-7975-44fb-8e06-abb98246a843" />
+
+- **Observation:** Fare amounts are relatively stable throughout the month, with a slight increase around days 15–25.
+- **Insight:** Mid-month periods might see higher ride activity, possibly due to pay cycles or increased urban movement.
+
+### 8. Sum of fare_amount by peak_hour
+- **Observation:** Approximately 71.01% of the total fare amount occurs during peak hours (1), while 28.99% occurs off-peak (0).
+- **Insight:** Peak hours (7–9 AM and 5–7 PM) generate significantly more revenue, reflecting higher demand or surge pricing during these times.
+
+### 9. Sum of passenger_count by peak_hour
+- **Observation:** About 70.59% of passenger counts occur during peak hours (1), while 29.41% occur off-peak (0).
+- **Insight:** Peak hours not only increase fare amounts but also involve more passengers, suggesting crowded rides or higher utilization during commute times.
+<img width="250" height="309" alt="pie chart" src="https://github.com/user-attachments/assets/34ff2caa-15ff-4b33-8626-02bac43ef49c" />
