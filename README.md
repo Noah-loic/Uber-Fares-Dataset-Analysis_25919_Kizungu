@@ -282,7 +282,7 @@ plt.show()
 # For more in depth view and understanding you can refer to the attach jupyterNotebook file
 
 
-## Power BI Visualization Insights
+# Power BI Visualization Insights
 
 ### Dashboard
 <img width="659" height="365" alt="dashboard" src="https://github.com/user-attachments/assets/c556120c-86c9-4d8b-8000-0d51481bb6eb" />
