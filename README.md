@@ -19,8 +19,23 @@ The goal of this notebook is to analyze Uber ride data to:
 ### Step 1: Import Libraries
 Essential Python libraries such as `pandas`, `numpy`, `matplotlib`, and `seaborn` were imported for data handling and visualization. Warnings were suppressed to reduce clutter.
 
+```python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import warnings
+warnings.filterwarnings('ignore')
+```
+
 ### Step 2: Load Dataset
 The dataset (`uber.csv`) was loaded using `pandas` and the unnamed index column was renamed to `Ride_ID` for clarity.
+```python
+df = pd.read_csv('uber.csv')
+```
+```python
+print(df.rename(columns={'Unnamed: 0': 'Ride_ID'}, inplace=True))
+```
 
 ### Step 3: Data Inspection
 Several commands were used to examine the dataset:
@@ -29,6 +44,20 @@ Several commands were used to examine the dataset:
 - `.isnull().sum()`: To detect missing values.
 - `.describe()`: To understand statistical properties (e.g., min, max, mean, quartiles).
 
+ ```python
+iprint("First 5 rows:")
+print(df.head())
+
+print("\nDataset Info:")
+print(df.info())
+
+print("\nMissing Values:")
+print(df.isnull().sum())
+
+print("\nDescriptive Statistics:")
+print(df.describe())
+```
+
 ### Step 4: Data Cleaning
 Key cleaning operations included:
 - Dropping rows with missing or invalid critical values like `fare_amount`, `pickup_longitude`, `pickup_latitude`, `dropoff_longitude`, or `dropoff_latitude`.
@@ -36,6 +65,19 @@ Key cleaning operations included:
 - Converting `pickup_datetime` to proper datetime format and removing rows where conversion failed.
 - Saving the cleaned dataset as `uber_cleaned.csv`.
 
+```python
+df_clean = df.dropna(subset=['fare_amount', 'pickup_longitude', 'pickup_latitude', 'dropoff_longitude', 'dropoff_latitude'])
+
+df_clean = df_clean.drop_duplicates()
+if 'pickup_datetime' in df_clean.columns:
+    df_clean['pickup_datetime'] = pd.to_datetime(df_clean['pickup_datetime'], errors='coerce')
+    
+df_clean = df_clean.dropna(subset=['pickup_datetime'])
+
+df_clean.to_csv('uber_cleaned.csv', index=False)
+
+print("\nCleaned data saved to 'data/uber_cleaned.csv'")
+```
 ## 3. Data Visualization and Interpretation
 
 ### Histogram of Fare Amounts
