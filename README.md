@@ -1,6 +1,6 @@
 
 
-## Uber Trip Data Analysis Report
+# Uber Trip Data Analysis Report
 ## Names: KIZUNGU SHYAKA NOAH LOIC
 ## ID: 25919
 
@@ -227,3 +227,5 @@ plt.show()
 - **Key Insight:** A moderate to strong correlation between `distance` and `fare_amount` (e.g., ~0.6 to 0.8), confirming the trend seen in the scatter plot.
 - Other variables (like latitudes and longitudes) typically show weak or no correlation with fare since they are spatial rather than numerical magnitudes.
 - **Conclusion:** The heatmap confirms that fare is mainly influenced by distance, validating the scatter plot. Other features may be useful for location-based clustering or advanced modeling but do not directly correlate with fare
+- 
+# For more in depth view and understanding you can refer to the attach jupiterNotebook file
